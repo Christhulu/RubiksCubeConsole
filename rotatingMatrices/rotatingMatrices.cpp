@@ -116,6 +116,15 @@ int main()
     c.printCube();
 
 
+    std::cout << "Front and Back switched" << std::endl;
+    c.switchFront('A');
+    c.printCube();
+
+    std::cout << "Cube Reset" << std::endl;
+    c.resetCube();
+    c.printCube();
+
+
 
 
 

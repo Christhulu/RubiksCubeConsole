@@ -38,6 +38,7 @@ class Cube
 		//Use the previous methods to randomly shake up the cube, this makes sure we get a random cube but it is also legal
 		void shuffleCube();
 		void printCube();
+		void resetCube();
 
 	private:
 

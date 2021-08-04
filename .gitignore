@@ -18,3 +18,6 @@ rotatingMatrices/Debug/rotatingMatrices.ilk
 *.filters
 *.user
 *.recipe
+*.db-shm
+*.db-wal
+*.opendb

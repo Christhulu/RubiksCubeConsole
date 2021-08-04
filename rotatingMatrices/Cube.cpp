@@ -59,15 +59,21 @@ void Cube::switchFront(char c)
 
 		break; 
 	case 'B':
-		
+		std::swap(top, back);
+		std::swap(top, bottom);
+		std::swap(top, front);
 		//B is Bottom
 		break;
 	case 'L':
-		
+		std::swap(front, right);
+		std::swap(front, left);
+		std::swap(left, back);
 		//L is left
 		break;
 	case 'R':
-		
+		std::swap(front, left);
+		std::swap(front, right);
+		std::swap(right, back);
 		//R is Right
 		break;
 	case 'A':
@@ -86,18 +92,14 @@ void Cube::switchFront(char c)
 	}
 
 
-
-
-
-
-
-
 }
 
 void Cube::flipCube()
 {
 
-
+	
+	std::swap(left, right);
+	std::swap(top, bottom);
 
 
 }

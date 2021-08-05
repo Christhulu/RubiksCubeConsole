@@ -107,61 +107,88 @@ void Cube::flipCube()
 void Cube::upClockwise()
 {
 
+	//Swap first rows of all of the side faces except for top and bottom
+	//Do this in a clockwise fashion
+	std::swap(front.face[0], left.face[0]);
+	std::swap(front.face[0], right.face[0]);
+	std::swap(right.face[0], back.face[0]);
 
+
+	//Rotate top face clockwise 
+
+
+
+	turns++;
 }
 
 void Cube::upCounter()
 {
 
+	//Swap first rows of all of the side faces except for top and bottom
+	//Do this in a counterclockwise fashion
+	std::swap(front.face[0], right.face[0]);
+	std::swap(front.face[0], left.face[0]);
+	std::swap(left.face[0], back.face[0]);
 
+	//Rotate top face
+
+
+	turns++;
 }
 
 void Cube::leftClockwise()
 {
 
 
+	turns++;
 }
 
 void Cube::leftCounter()
 {
 
 
+	turns++;
 }
 
 void Cube::rightClockwise()
 {
 
 
+	turns++;
 }
 
 void Cube::rightCounter()
 {
 
 
+	turns++;
 }
 
 void Cube::frontClockwise()
 {
 
 
+	turns++;
 }
 
 void Cube::frontCounter()
 {
 
 
+	turns++;
 }
 
 void Cube::backClockwise()
 {
 
 
+	turns++;
 }
 
 void Cube::backCounter()
 {
 
-
+	turns++;
 }
 
 void Cube::shuffleCube()

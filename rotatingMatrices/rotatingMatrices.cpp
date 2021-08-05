@@ -113,11 +113,11 @@ int main()
 {
 
     Cube c;
-    c.printCube();
+    //c.printCube();
 
 
-    std::cout << "Front and Back switched" << std::endl;
-    c.switchFront('A');
+    std::cout << "Up Test" << std::endl;
+    c.upClockwise();
     c.printCube();
 
     std::cout << "Cube Reset" << std::endl;

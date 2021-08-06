@@ -115,6 +115,16 @@ void Cube::upClockwise()
 
 
 	//Rotate top face clockwise 
+	std::vector<char> tmp = top.face[0];
+
+	for (int i = 0; i < top.face.size(); i++) {
+	
+		std::swap(tmp[i], top.face[i][2]);
+
+	}
+
+	//tmp now has w
+
 
 
 

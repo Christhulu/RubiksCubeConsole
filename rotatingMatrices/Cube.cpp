@@ -113,6 +113,10 @@ void Cube::upClockwise()
 	std::swap(front.face[0], right.face[0]);
 	std::swap(right.face[0], back.face[0]);
 
+	top.face = { {'A','B','C'},{'D','E','F'},{'G','H','I'}
+	};
+
+	top.printFace();
 
 	//Rotate top face clockwise 
 	std::vector<char> tmp = top.face[0];
@@ -123,8 +127,73 @@ void Cube::upClockwise()
 
 	}
 
-	//tmp now has w
+	std::swap(tmp, top.face[2]);
+	std::reverse(top.face[2].begin(), top.face[2].end());
+	
 
+	tmp[2] = top.face[2][0];
+
+
+	for (int i = 0; i < top.face.size(); i++) {
+	
+		std::swap(tmp[i], top.face[i][0]);
+	
+	}
+
+	top.face[0][1] = tmp[1];
+
+
+
+
+
+	//tmp now has I F C
+	// 0 1 2
+
+	//0 -> [2][2]
+	//1 -> [2][1]
+	//2 -> [2][0]
+	//
+	std::cout << "TMP: " << std::endl;
+
+	for (int i = 0; i < tmp.size(); i++) {
+		std::cout << tmp[i] << " ";
+	}
+
+	std::cout << std::endl;
+
+	/*
+		for (int i = 2; i >= 0; i--) {
+
+		std::swap(tmp[2-i], top.face[2][i]);
+
+	}
+	
+	*/
+
+
+	//Now tmp has I H G
+
+	/*
+		for (int i = 2; i >= 0; i--) {
+
+		std::swap(tmp[2 - i], top.face[i][0]);
+
+	}
+	
+	*/
+
+
+	//now tmp has G D A
+
+	/*
+		for (int i = 0; i < top.face.size(); i++) {
+		
+		top.face[0][i] = tmp[i];
+	}
+	
+	
+	
+	*/
 
 
 

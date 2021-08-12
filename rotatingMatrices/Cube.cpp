@@ -113,88 +113,11 @@ void Cube::upClockwise()
 	std::swap(front.face[0], right.face[0]);
 	std::swap(right.face[0], back.face[0]);
 
-	top.face = { {'A','B','C'},{'D','E','F'},{'G','H','I'}
-	};
+
 
 	top.printFace();
 
 	//Rotate top face clockwise 
-	std::vector<char> tmp = top.face[0];
-
-	for (int i = 0; i < top.face.size(); i++) {
-	
-		std::swap(tmp[i], top.face[i][2]);
-
-	}
-
-	std::swap(tmp, top.face[2]);
-	std::reverse(top.face[2].begin(), top.face[2].end());
-	
-
-	tmp[2] = top.face[2][0];
-
-
-	for (int i = 0; i < top.face.size(); i++) {
-	
-		std::swap(tmp[i], top.face[i][0]);
-	
-	}
-
-	top.face[0][1] = tmp[1];
-
-
-
-
-
-	//tmp now has I F C
-	// 0 1 2
-
-	//0 -> [2][2]
-	//1 -> [2][1]
-	//2 -> [2][0]
-	//
-	std::cout << "TMP: " << std::endl;
-
-	for (int i = 0; i < tmp.size(); i++) {
-		std::cout << tmp[i] << " ";
-	}
-
-	std::cout << std::endl;
-
-	/*
-		for (int i = 2; i >= 0; i--) {
-
-		std::swap(tmp[2-i], top.face[2][i]);
-
-	}
-	
-	*/
-
-
-	//Now tmp has I H G
-
-	/*
-		for (int i = 2; i >= 0; i--) {
-
-		std::swap(tmp[2 - i], top.face[i][0]);
-
-	}
-	
-	*/
-
-
-	//now tmp has G D A
-
-	/*
-		for (int i = 0; i < top.face.size(); i++) {
-		
-		top.face[0][i] = tmp[i];
-	}
-	
-	
-	
-	*/
-
 
 
 	turns++;
@@ -209,8 +132,35 @@ void Cube::upCounter()
 	std::swap(front.face[0], left.face[0]);
 	std::swap(left.face[0], back.face[0]);
 
-	//Rotate top face
+	top.face = { {'A','B','C'},{'D','E','F'},{'G','H','I'}
+	};
 
+	//Rotate top face counter clockwise
+		
+		for (int x = 0; x < top.face.size() / 2; x++) {
+		// Consider elements in group
+		// of 4 in current square
+		for (int y = x; y < top.face.size() - x - 1; y++) {
+			// Store current cell in
+			// temp variable
+			char temp = top.face[x][y];
+
+			// Move values from right to top
+			top.face[x][y] = top.face[y][top.face.size() - 1 - x];
+
+			// Move values from bottom to right
+			top.face[y][top.face.size() - 1 - x]
+				= top.face[top.face.size() - 1 - x][top.face.size() - 1 - y];
+
+			// Move values from left to bottom
+			top.face[top.face.size() - 1 - x][top.face.size() - 1 - y]
+				= top.face[top.face.size() - 1 - y][x];
+
+			// Assign temp to left
+			top.face[top.face.size() - 1 - y][x] = temp;
+		}
+	}
+	
 
 	turns++;
 }

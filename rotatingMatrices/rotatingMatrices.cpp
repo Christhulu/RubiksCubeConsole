@@ -119,7 +119,7 @@ int main()
     std::cout << "Up Test" << std::endl;
 
     //Modify top to test it
-    c.upClockwise();
+    c.upCounter();
 
 
     c.printCube();

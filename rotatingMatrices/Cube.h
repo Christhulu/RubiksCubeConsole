@@ -24,6 +24,8 @@ class Cube
 		//Might be easier to work with knowing that we have a set front face to work off of
 		void upClockwise();
 		void upCounter();
+		void downClockwise();
+		void downCounter();
 		void leftClockwise();
 		void leftCounter();
 		void rightClockwise();

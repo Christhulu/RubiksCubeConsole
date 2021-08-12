@@ -132,9 +132,6 @@ void Cube::upCounter()
 	std::swap(front.face[0], left.face[0]);
 	std::swap(left.face[0], back.face[0]);
 
-	top.face = { {'A','B','C'},{'D','E','F'},{'G','H','I'}
-	};
-
 	//Rotate top face counter clockwise
 		
 		for (int x = 0; x < top.face.size() / 2; x++) {
@@ -165,6 +162,14 @@ void Cube::upCounter()
 	turns++;
 }
 
+void Cube::downClockwise()
+{
+}
+
+void Cube::downCounter()
+{
+}
+
 void Cube::leftClockwise()
 {
 
@@ -176,11 +181,45 @@ void Cube::leftCounter()
 {
 
 
+
+	//Rotate left face counter clockwise
+
+	for (int x = 0; x < left.face.size() / 2; x++) {
+		// Consider elements in group
+		// of 4 in current square
+		for (int y = x; y < left.face.size() - x - 1; y++) {
+			// Store current cell in
+			// temp variable
+			char temp = left.face[x][y];
+
+			// Move values from right to top
+			left.face[x][y] = left.face[y][left.face.size() - 1 - x];
+
+			// Move values from bottom to right
+			left.face[y][left.face.size() - 1 - x]
+				= left.face[left.face.size() - 1 - x][left.face.size() - 1 - y];
+
+			// Move values from left to bottom
+			left.face[left.face.size() - 1 - x][left.face.size() - 1 - y]
+				= left.face[left.face.size() - 1 - y][x];
+
+			// Assign temp to left
+			left.face[left.face.size() - 1 - y][x] = temp;
+		}
+	}
+
+
+
 	turns++;
 }
 
+
 void Cube::rightClockwise()
 {
+
+
+
+
 
 
 	turns++;
@@ -189,7 +228,31 @@ void Cube::rightClockwise()
 void Cube::rightCounter()
 {
 
+	//Rotate right face counter clockwise
 
+	for (int x = 0; x < right.face.size() / 2; x++) {
+		// Consider elements in group
+		// of 4 in current square
+		for (int y = x; y < right.face.size() - x - 1; y++) {
+			// Store current cell in
+			// temp variable
+			char temp = right.face[x][y];
+
+			// Move values from right to top
+			right.face[x][y] = right.face[y][right.face.size() - 1 - x];
+
+			// Move values from bottom to right
+			right.face[y][right.face.size() - 1 - x]
+				= right.face[right.face.size() - 1 - x][right.face.size() - 1 - y];
+
+			// Move values from left to bottom
+			right.face[right.face.size() - 1 - x][right.face.size() - 1 - y]
+				= right.face[right.face.size() - 1 - y][x];
+
+			// Assign temp to left
+			right.face[right.face.size() - 1 - y][x] = temp;
+		}
+	}
 	turns++;
 }
 
@@ -204,6 +267,33 @@ void Cube::frontCounter()
 {
 
 
+
+	//Rotate front face counter clockwise
+
+	for (int x = 0; x < front.face.size() / 2; x++) {
+		// Consider elements in group
+		// of 4 in current square
+		for (int y = x; y < front.face.size() - x - 1; y++) {
+			// Store current cell in
+			// temp variable
+			char temp = front.face[x][y];
+
+			// Move values from right to top
+			front.face[x][y] = front.face[y][front.face.size() - 1 - x];
+
+			// Move values from bottom to right
+			front.face[y][front.face.size() - 1 - x]
+				= front.face[front.face.size() - 1 - x][front.face.size() - 1 - y];
+
+			// Move values from left to bottom
+			front.face[front.face.size() - 1 - x][front.face.size() - 1 - y]
+				= front.face[front.face.size() - 1 - y][x];
+
+			// Assign temp to left
+			front.face[front.face.size() - 1 - y][x] = temp;
+		}
+	}
+
 	turns++;
 }
 
@@ -217,11 +307,121 @@ void Cube::backClockwise()
 void Cube::backCounter()
 {
 
+
+	//Rotate back face counter clockwise
+
+	for (int x = 0; x < back.face.size() / 2; x++) {
+		// Consider elements in group
+		// of 4 in current square
+		for (int y = x; y < back.face.size() - x - 1; y++) {
+			// Store current cell in
+			// temp variable
+			char temp = back.face[x][y];
+
+			// Move values from right to top
+			back.face[x][y] = back.face[y][back.face.size() - 1 - x];
+
+			// Move values from bottom to right
+			back.face[y][back.face.size() - 1 - x]
+				= back.face[back.face.size() - 1 - x][back.face.size() - 1 - y];
+
+			// Move values from left to bottom
+			back.face[back.face.size() - 1 - x][back.face.size() - 1 - y]
+				= back.face[back.face.size() - 1 - y][x];
+
+			// Assign temp to left
+			back.face[back.face.size() - 1 - y][x] = temp;
+		}
+	}
 	turns++;
 }
 
 void Cube::shuffleCube()
 {
+
+	//This says what operation to do
+	int random = 0;
+
+	//1 through 3, this is how many times that action will be performed, no point doing any operation more than 4 times because it will just do a bunch of useless operations
+	//Also doing any operation 4 times is useless
+
+	int times = 3;
+
+
+	switch (random) {
+		case 0:
+
+			for (int i = 0; i < times; i++) {
+				upClockwise();
+			}
+
+
+		case 1:
+
+			for (int i = 0; i < times; i++) {
+				upCounter();
+			}
+
+
+		case 2:
+
+			for (int i = 0; i < times; i++) {
+				leftClockwise();
+			}
+
+
+		case 3:
+
+			for (int i = 0; i < times; i++) {
+				leftCounter();
+			}
+
+		case 4:
+			for (int i = 0; i < times; i++) {
+				rightClockwise();
+			}
+
+		case 5:
+			for (int i = 0; i < times; i++) {
+				rightCounter();
+			}
+		
+
+		case 6:
+
+			for (int i = 0; i < times; i++) {
+				frontClockwise();
+			}
+
+		case 7:
+
+			for (int i = 0; i < times; i++) {
+				frontCounter();
+			}
+
+		case 9:
+
+			for (int i = 0; i < times; i++) {
+				downClockwise();
+			}
+
+		case 10:
+			for (int i = 0; i < times; i++) {
+				downCounter();
+			}
+
+		case 11:
+			for (int i = 0; i < times; i++) {
+				backCounter();
+			}
+
+		case 12:
+			for (int i = 0; i < times; i++) {
+				backCounter();
+			}
+
+		}
+
 }
 
 void Cube::printCube()

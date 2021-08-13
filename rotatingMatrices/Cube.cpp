@@ -134,29 +134,7 @@ void Cube::upCounter()
 
 	//Rotate top face counter clockwise
 		
-		for (int x = 0; x < top.face.size() / 2; x++) {
-		// Consider elements in group
-		// of 4 in current square
-		for (int y = x; y < top.face.size() - x - 1; y++) {
-			// Store current cell in
-			// temp variable
-			char temp = top.face[x][y];
-
-			// Move values from right to top
-			top.face[x][y] = top.face[y][top.face.size() - 1 - x];
-
-			// Move values from bottom to right
-			top.face[y][top.face.size() - 1 - x]
-				= top.face[top.face.size() - 1 - x][top.face.size() - 1 - y];
-
-			// Move values from left to bottom
-			top.face[top.face.size() - 1 - x][top.face.size() - 1 - y]
-				= top.face[top.face.size() - 1 - y][x];
-
-			// Assign temp to left
-			top.face[top.face.size() - 1 - y][x] = temp;
-		}
-	}
+	top.rotateCounter();
 	
 
 	turns++;
@@ -184,29 +162,7 @@ void Cube::leftCounter()
 
 	//Rotate left face counter clockwise
 
-	for (int x = 0; x < left.face.size() / 2; x++) {
-		// Consider elements in group
-		// of 4 in current square
-		for (int y = x; y < left.face.size() - x - 1; y++) {
-			// Store current cell in
-			// temp variable
-			char temp = left.face[x][y];
-
-			// Move values from right to top
-			left.face[x][y] = left.face[y][left.face.size() - 1 - x];
-
-			// Move values from bottom to right
-			left.face[y][left.face.size() - 1 - x]
-				= left.face[left.face.size() - 1 - x][left.face.size() - 1 - y];
-
-			// Move values from left to bottom
-			left.face[left.face.size() - 1 - x][left.face.size() - 1 - y]
-				= left.face[left.face.size() - 1 - y][x];
-
-			// Assign temp to left
-			left.face[left.face.size() - 1 - y][x] = temp;
-		}
-	}
+	left.rotateCounter();
 
 
 
@@ -230,29 +186,7 @@ void Cube::rightCounter()
 
 	//Rotate right face counter clockwise
 
-	for (int x = 0; x < right.face.size() / 2; x++) {
-		// Consider elements in group
-		// of 4 in current square
-		for (int y = x; y < right.face.size() - x - 1; y++) {
-			// Store current cell in
-			// temp variable
-			char temp = right.face[x][y];
-
-			// Move values from right to top
-			right.face[x][y] = right.face[y][right.face.size() - 1 - x];
-
-			// Move values from bottom to right
-			right.face[y][right.face.size() - 1 - x]
-				= right.face[right.face.size() - 1 - x][right.face.size() - 1 - y];
-
-			// Move values from left to bottom
-			right.face[right.face.size() - 1 - x][right.face.size() - 1 - y]
-				= right.face[right.face.size() - 1 - y][x];
-
-			// Assign temp to left
-			right.face[right.face.size() - 1 - y][x] = temp;
-		}
-	}
+	right.rotateCounter();
 	turns++;
 }
 
@@ -270,30 +204,7 @@ void Cube::frontCounter()
 
 	//Rotate front face counter clockwise
 
-	for (int x = 0; x < front.face.size() / 2; x++) {
-		// Consider elements in group
-		// of 4 in current square
-		for (int y = x; y < front.face.size() - x - 1; y++) {
-			// Store current cell in
-			// temp variable
-			char temp = front.face[x][y];
-
-			// Move values from right to top
-			front.face[x][y] = front.face[y][front.face.size() - 1 - x];
-
-			// Move values from bottom to right
-			front.face[y][front.face.size() - 1 - x]
-				= front.face[front.face.size() - 1 - x][front.face.size() - 1 - y];
-
-			// Move values from left to bottom
-			front.face[front.face.size() - 1 - x][front.face.size() - 1 - y]
-				= front.face[front.face.size() - 1 - y][x];
-
-			// Assign temp to left
-			front.face[front.face.size() - 1 - y][x] = temp;
-		}
-	}
-
+	front.rotateCounter();
 	turns++;
 }
 
@@ -310,29 +221,7 @@ void Cube::backCounter()
 
 	//Rotate back face counter clockwise
 
-	for (int x = 0; x < back.face.size() / 2; x++) {
-		// Consider elements in group
-		// of 4 in current square
-		for (int y = x; y < back.face.size() - x - 1; y++) {
-			// Store current cell in
-			// temp variable
-			char temp = back.face[x][y];
-
-			// Move values from right to top
-			back.face[x][y] = back.face[y][back.face.size() - 1 - x];
-
-			// Move values from bottom to right
-			back.face[y][back.face.size() - 1 - x]
-				= back.face[back.face.size() - 1 - x][back.face.size() - 1 - y];
-
-			// Move values from left to bottom
-			back.face[back.face.size() - 1 - x][back.face.size() - 1 - y]
-				= back.face[back.face.size() - 1 - y][x];
-
-			// Assign temp to left
-			back.face[back.face.size() - 1 - y][x] = temp;
-		}
-	}
+	back.rotateCounter();
 	turns++;
 }
 

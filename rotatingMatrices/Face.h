@@ -17,5 +17,7 @@ class Face {
 		};
 		void setColor(char ch);
 		void printFace();
+		void rotateClockwise();
+		void rotateCounter();
 
 };
